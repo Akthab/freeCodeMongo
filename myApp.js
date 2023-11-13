@@ -41,6 +41,8 @@ function createAndSavePerson() {
 	});
 }
 
+createAndSavePerson();
+
 // let Person;
 
 // const createAndSavePerson = (done) => {
