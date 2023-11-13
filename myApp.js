@@ -33,11 +33,8 @@ function createAndSavePerson() {
 	});
 
 	person.save(function (err, data) {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log('The document has been saved successfull');
-		}
+		if (err) return console.error(err);
+		done(null, data);
 	});
 }
 
