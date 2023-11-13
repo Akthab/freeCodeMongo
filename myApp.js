@@ -59,6 +59,16 @@ const findPeopleByName = (personName, done) => {
 	});
 };
 
+const findOneByFood = (food, done) => {
+	Person.findOne({ favoriteFoods: food }, function (err, data) {
+		if (err) {
+			console.error(err);
+		} else {
+			done(null, data);
+		}
+	});
+};
+
 // findPeopleByName(filter, function (err, data) {
 // 	if (err) {
 // 		console.error(err);
@@ -100,10 +110,6 @@ const findPeopleByName = (personName, done) => {
 // const createManyPeople = (arrayOfPeople, done) => {
 // 	done(null /*, data*/);
 // };
-
-const findOneByFood = (food, done) => {
-	done(null /*, data*/);
-};
 
 const findPersonById = (personId, done) => {
 	done(null /*, data*/);
