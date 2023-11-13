@@ -48,6 +48,16 @@ const createManyPeople = (arrayOfPeople, done) => {
 	});
 };
 
+const findPeopleByName = (personName, done) => {
+	Person.find(personName, function (err, data) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, data);
+		}
+	});
+};
+
 // var done;
 
 // var createAndSavePerson = (done) => {
@@ -80,16 +90,6 @@ const createManyPeople = (arrayOfPeople, done) => {
 // const createManyPeople = (arrayOfPeople, done) => {
 // 	done(null /*, data*/);
 // };
-
-const findPeopleByName = (personName, done) => {
-	Model.find(personName, function (err, data) {
-		if (err) {
-			done(err);
-		} else {
-			done(null, data);
-		}
-	});
-};
 
 const findOneByFood = (food, done) => {
 	done(null /*, data*/);
