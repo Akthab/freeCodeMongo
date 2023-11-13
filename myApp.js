@@ -47,17 +47,27 @@ const createManyPeople = (arrayOfPeople, done) => {
 		}
 	});
 };
+// const filter = JSON.parse('{"name": "r@nd0mN4m3"}');
 
 const findPeopleByName = (personName, done) => {
-	Person.find(personName, function (err, data) {
+	Person.find({ name: personName }, function (err, personFound) {
 		if (err) {
 			done(err);
 		} else {
-			done(null, data);
+			done(null, personFound);
 		}
 	});
 };
 
+// findPeopleByName(filter, function (err, data) {
+// 	if (err) {
+// 		console.error(err);
+// 		// Handle the error
+// 	} else {
+// 		// The person has been found
+// 		console.log(data);
+// 	}
+// });
 // var done;
 
 // var createAndSavePerson = (done) => {
