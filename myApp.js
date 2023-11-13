@@ -25,28 +25,40 @@ const person = new Person({
 	favoriteFoods: ['banana, apple, orange'],
 });
 
-var done;
-
-var createAndSavePerson = (done) => {
-	const person = new Person({
-		name: 'John',
-		age: 6,
-		favoriteFoods: ['banana', 'apple', 'orange'],
+var createAndSavePerson = function (done) {
+	var janeFonda = new Person({
+		name: 'Jane Fonda',
+		age: 84,
+		favoriteFoods: ['eggs', 'fish', 'fresh fruit'],
 	});
 
-	person.save(function (err, data) {
+	janeFonda.save(function (err, data) {
 		if (err) return console.error(err);
 		done(null, data);
 	});
 };
+// var done;
 
-createAndSavePerson((err, data) => {
-	if (err) {
-		console.error(err);
-		return;
-	}
-	console.log(data);
-});
+// var createAndSavePerson = (done) => {
+// 	const person = new Person({
+// 		name: 'John',
+// 		age: 6,
+// 		favoriteFoods: ['banana', 'apple', 'orange'],
+// 	});
+
+// 	person.save(function (err, data) {
+// 		if (err) return console.error(err);
+// 		done(null, data);
+// 	});
+// };
+
+// createAndSavePerson((err, data) => {
+// 	if (err) {
+// 		console.error(err);
+// 		return;
+// 	}
+// 	console.log(data);
+// });
 
 // let Person;
 
