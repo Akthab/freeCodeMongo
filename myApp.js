@@ -25,7 +25,9 @@ const person = new Person({
 	favoriteFoods: ['banana, apple, orange'],
 });
 
-function createAndSavePerson() {
+var done;
+
+var createAndSavePerson = (done) => {
 	const person = new Person({
 		name: 'John',
 		age: 6,
@@ -36,9 +38,15 @@ function createAndSavePerson() {
 		if (err) return console.error(err);
 		done(null, data);
 	});
-}
+};
 
-createAndSavePerson();
+createAndSavePerson((err, data) => {
+	if (err) {
+		console.error(err);
+		return;
+	}
+	console.log(data);
+});
 
 // let Person;
 
