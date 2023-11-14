@@ -11,7 +11,6 @@ const personSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
-		unique: true,
 	},
 	age: Number,
 	favoriteFoods: [String],
@@ -182,20 +181,20 @@ const removeById = (personId, done) => {
 
 const removeManyPeople = async (done) => {
 	const nameToRemove = 'Mary';
-	await Person.findOneAndDelete({ name: nameToRemove });
+	// await Person.findOneAndDelete({ name: nameToRemove });
 	Person.remove({ name: nameToRemove }, { force: true }, (err, person) => {
 		if (err) return console.error(err);
 		done(null, person);
 	});
 };
 
-removeManyPeople((err, results) => {
+/*removeManyPeople((err, results) => {
 	if (err) {
 		console.error(err);
 	} else {
 		console.log(results);
 	}
-});
+});*/
 
 const queryChain = (done) => {
 	const foodToSearch = 'burrito';
