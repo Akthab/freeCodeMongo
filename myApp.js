@@ -176,6 +176,11 @@ const removeById = (personId, done) => {
 
 const removeManyPeople = (done) => {
 	const nameToRemove = 'Mary';
+	Person.remove({ name: nameToRemove }, function (err, person) {
+		if (err) return console.error(err);
+
+		done(null, person);
+	});
 
 	done(null /*, data*/);
 };
