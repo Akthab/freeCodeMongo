@@ -182,6 +182,7 @@ const removeById = (personId, done) => {
 const removeManyPeople = async (done) => {
 	const nameToRemove = 'Mary';
 	// await Person.findOneAndDelete({ name: nameToRemove });
+	Person.dropIndex({ name: 1 });
 	Person.remove({ name: nameToRemove }, { force: true }, (err, person) => {
 		if (err) return console.error(err);
 		done(null, person);
