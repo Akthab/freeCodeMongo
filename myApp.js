@@ -188,13 +188,13 @@ const removeManyPeople = (done) => {
 	});
 };
 
-/*removeManyPeople((err, results) => {
+removeManyPeople((err, results) => {
 	if (err) {
 		console.error(err);
 	} else {
 		console.log(results);
 	}
-});*/
+});
 
 const queryChain = (done) => {
 	const foodToSearch = 'burrito';
