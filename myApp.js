@@ -181,8 +181,6 @@ const removeManyPeople = (done) => {
 
 		done(null, person);
 	});
-
-	done(null /*, data*/);
 };
 
 const queryChain = (done) => {
