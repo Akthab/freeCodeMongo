@@ -38,10 +38,16 @@ var createAndSavePerson = function (done) {
 	});
 };
 
+const arrayOfPeople = [
+	{ name: 'Frankie', age: 74, favoriteFoods: ['Del Taco'] },
+	{ name: 'Sol', age: 76, favoriteFoods: ['roast chicken'] },
+	{ name: 'Robert', age: 78, favoriteFoods: ['wine'] },
+];
+
 const createManyPeople = (arrayOfPeople, done) => {
 	Person.create(arrayOfPeople, function (err, data) {
 		if (err) {
-			done(err);
+			return console.log(err);
 		} else {
 			done(null, data);
 		}
@@ -176,12 +182,19 @@ const removeById = (personId, done) => {
 
 const removeManyPeople = (done) => {
 	const nameToRemove = 'Mary';
-	Person.deleteMany({ name: nameToRemove }, (err, person) => {
+	Person.remove({ name: nameToRemove }, { force: true }, (err, person) => {
 		if (err) return console.error(err);
-
 		done(null, person);
 	});
 };
+
+/*removeManyPeople((err, results) => {
+	if (err) {
+		console.error(err);
+	} else {
+		console.log(results);
+	}
+});*/
 
 const queryChain = (done) => {
 	const foodToSearch = 'burrito';
